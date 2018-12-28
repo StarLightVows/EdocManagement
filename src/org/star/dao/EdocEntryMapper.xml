@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.star.dao.EdocEntryMapper">
+	<select id="getAllEdocEntry" resultType="EdocEntry">
+		SELECT * FROM edoc_entry 
+		<where>
+			<if test="categoryId!=null and categoryId!=0">
+				categoryId = #{categoryId}
+			</if>
+		</where>
+	</select>
+	<delete id="delEdocEntry">
+		DELETE  FROM edoc_entry
+		<where>
+			<if test="id!=null">
+				id = #{id}
+			</if>
+		</where>
+	</delete>
+</mapper>
